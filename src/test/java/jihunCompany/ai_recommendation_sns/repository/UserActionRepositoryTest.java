@@ -37,8 +37,8 @@ class UserActionRepositoryTest {
         userActionRepository.save(action);
 
         // 2. When: 다양한 조건으로 조회
-        List<UserAction> userActions = userActionRepository.findAllByUserId(user.getId());
-        List<UserAction> postActions = userActionRepository.findAllByPostId(post.getId());
+        List<UserAction> userActions = userActionRepository.findAllByUser_Id(user.getId());
+        List<UserAction> postActions = userActionRepository.findAllByPost_Id(post.getId());
         boolean isExists = userActionRepository.existsByUserIdAndPostIdAndActionType(
                 user.getId(), post.getId(), ActionType.LIKE
         );

@@ -1,10 +1,13 @@
 package jihunCompany.ai_recommendation_sns.controller;
 
+import jihunCompany.ai_recommendation_sns.dto.ActionExportDto;
 import jihunCompany.ai_recommendation_sns.dto.ActionRequest;
 import jihunCompany.ai_recommendation_sns.service.UserActionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -26,4 +29,10 @@ public class UserActionController {
                 "VIEW는 GET /posts/{postId}에서 처리됩니다."
         );
     }
+
+    @GetMapping("/export")
+    public List<ActionExportDto> export() {
+        return userActionService.exportActions();
+    }
+
 }
